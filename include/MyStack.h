@@ -32,8 +32,7 @@ class MyStack {
         if (!isFull()) {
             storage[top] = elem;
             top++;
-        }
-        else {
+        } else {
             throw "Error: Stack is full!";
         }
     }
@@ -45,8 +44,7 @@ class MyStack {
     T pop() {
         if (!isEmpty()) {
             return storage[--top];
-        }
-        else {
+        } else {
             throw "Error: Stack is empty!";
         }
     }

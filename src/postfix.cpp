@@ -10,7 +10,6 @@
 
 
 std::string infix2postfix(std::string infix) {
-    return infix;
     std::string stack;
     std::string str = std::move(infix);
     std::vector<std::string> output(str.length());
@@ -22,8 +21,7 @@ std::string infix2postfix(std::string infix) {
                 i++;
             }
             j++;
-        }
-        else {
+        } else {
             if (str[i] == ')') {
                 while (stack[stack.length() - 1] != '(') {
                     output[j].push_back(stack[stack.length() - 1]);
@@ -32,8 +30,7 @@ std::string infix2postfix(std::string infix) {
                 }
                 stack.pop_back();
                 i++;
-            }
-            else if ((str[i] == '+') || (str[i] == '-')) {
+            } else if ((str[i] == '+') || (str[i] == '-')) {
                 while ((stack[stack.length() - 1] == '*')
                     || (stack[stack.length() - 1] == '/')
                     || (stack[stack.length() - 1] == '+')
@@ -44,8 +41,7 @@ std::string infix2postfix(std::string infix) {
                 }
                 stack.push_back(str[i]);
                 i++;
-            }
-            else if (str[i] == '*' || str[i] == '/') {
+            } else if (str[i] == '*' || str[i] == '/') {
                 while ((stack[stack.length() - 1] == '*')
                     || (stack[stack.length() - 1] == '/')) {
                     output[j].push_back(stack[stack.length() - 1]);
@@ -54,12 +50,10 @@ std::string infix2postfix(std::string infix) {
                 }
                 stack.push_back(str[i]);
                 i++;
-            }
-            else if (str[i] == '(') {
+            } else if (str[i] == '(') {
                 stack.push_back(str[i]);
                 i++;
-            }
-            else {
+            } else {
                 i++;
             }
         }
